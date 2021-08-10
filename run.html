@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../static/css/main.css">
+  <link rel="stylesheet" href="../static/css/home.css">
+  <link rel="stylesheet" href="../static/css/run.css">
+  <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+  <link rel="stylesheet" href="../static/css/map.css">
+</head>
+<body>
+  <header class="home-app-name">
+    <div class="app-name-wrapper">
+      <div class='running-logo'>
+        <img src="../static/images/running_logo.png" alt="" class='running-logo'>
+      </div>
+      <h1 class="app-name">走る</h1>
+    </div>
+  </header>
+  <div id="cover" class="cover hidden"></div>
+  <div class="home-wrapper">
+    <h3 class="home-intro">距離を設定して走ろう！</h3>
+    <div class="user-home-detail">
+      <h3>設定距離 <span id="span2"></span>km<span class="fas fa-map-pin"></span></h3>
+      <input type="number" id="number2" value="1" max="2000" />
+      <input class="set-button" type="button" value="設定" onclick="clickBtn3()" />
+    </div>
+    <div class="map-wrapper">
+      <div id="map" class="map"></div>
+
+      <!-- タイマー＆計測終了ボタン -->
+      <div id="timer-wrapper" class="timer-wrapper hidden">
+        <div class="close-button-parent">
+          <input type="button" class="close-button" value="×" onclick="display_none()">
+        </div>
+        <div class="timer-child">
+          <h3>Timer</h3>
+          <p>
+            <span id="hour_timer">00</span>：
+            <span id="min_timer">00</span>：
+            <span id="sec_timer">00</span>
+          </p>
+        </div>
+        <div class="timer-child">
+          <h3>最短予測達成時間</h3>
+          <p>
+            <span id="predict_run_hour">00</span>：
+            <span id="predict_run_minute">00</span>：
+            <span id="predict_run_second">00</span>
+          </p>
+        </div>
+        <div class="stop-wrapper">
+          <input class="run-button" type="button" value="計測終了" onclick="stop_timer()">
+        </div>
+        <p class="attention">※予測時間を下回ると結果が反映されません</p>
+      </div>
+
+      <!-- 終了後画面 -->
+      <div id="timer-end-wrapper" class="timer-wrapper hidden"> 
+        <h2>お疲れ様でした</h2>
+        <h3>今回の記録</h3>
+        <div class="done-distance done-header">
+          <h3>設定距離</h3>
+          <p><span id="set_distance"></span>km</p>
+        </div>
+        <div class="done-time done-header">
+          <h3>走った時間</h3>
+          <p>
+            <span id="run_time"></span>
+            <span id="result_run_hour">00</span>時間
+            <span id="result_run_minute">00</span>分
+            <span id="result_run_second">00</span>秒
+          </p>
+        </div>
+        <div class="run-calory done-header">
+          <h3>消費カロリー(推定)</h3>
+          <p><span id="burned_calory"></span>カロリー</p>
+          <ul id="img-box" class="img-box">
+            
+          </ul>
+          <p><span id="snack_num">0</span>個分</p>
+        </div>
+        <div class="close-button-parent">
+          <input type="button" class="run-button" value="閉じる" onclick="close_result()">
+        </div>
+      </div>
+
+    </div>
+    
+    <!-- 計測開始 -->
+    <div class="start-wrapper">
+      <input id="click-start" class="run-button" type="button" value="開始" onclick="click_start()">
+      <input id="start-run" class="run-button hidden" type="button" value="Timer表示" onclick="display_block()">
+    </div>
+  </div>
+
+  <footer>
+    <ul class="button-wrapper">
+      <a href="home.html" class="button">
+        <i class="fas fa-home"></i>
+        <p>HOME</p>
+      </a>
+      <a href="run.html" class="button">
+        <i class="fas fa-running"></i>
+        <p>走る</p>
+      </a>
+      <a class="button" href="user.html">
+        <i class="fas fa-user-circle"></i>
+        <p>アカウント</p>
+      </a>
+      <a class="button" href="item.html">
+        <i class="fas fa-shopping-cart"></i>
+        <p>商品閲覧＆購入</p>
+      </a>
+    </ul>
+  </footer>
+  
+  <script src="../static/js/jquery-3.4.1.min.js"></script>
+  <script src="../static/js/test.js"></script>
+  <script src="../static/js/map.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDVTu0QZSYT-TfXwGMojYzIKSm_-lA9KCA&callback=initMap"></script>
+</body>
+</html>

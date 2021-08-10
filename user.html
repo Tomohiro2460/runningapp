@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../static/css/main.css">
+  <link rel="stylesheet" href="../static/css/home.css">
+  <link rel="stylesheet" href="../static/css/user.css">
+  <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+</head>
+<body>
+  <header class="home-app-name">アカウント</header>
+  <div class="user-description-wrapper">
+    <h1>アカウント情報</h1>
+    <div class="user-detail">
+      <div class="detail-child">
+        <h3>ユーザー名</h3>
+        <p id="user_name">森</p>
+      </div>
+      <div class="detail-child">
+        <h3>あなたの現在の体重</h3>
+        <p id="user_weight">80kg</p>
+      </div>
+      <div class="detail-child">
+        <h3>目標体重</h3>
+        <p id="user_goal_weight">50kg</p>
+      </div>
+      <div class="detail-child">
+        <h3>所持ポイント</h3>
+        <p id="user_point">50ポイント</p>
+      </div>
+      <div class="detail-child">
+        <h3>パスワード</h3>
+        <p>●●●</p>
+      </div>
+    </div>
+    <input type="button" class="edit-button" value="編集" onclick="edit_profile()">
+
+    <!-- 編集画面 -->
+    <div id="cover" class="cover hidden"></div>
+    <div id="editing-wrapper" class="editing-wrapper hidden">
+      <!-- 閉じる -->
+      <div class="close-button-parent">
+        <input type="button" class="close-button" value="×" onclick="display_none()">
+      </div>
+
+      <!-- 編集 -->
+      <h2>編集</h2>
+      <div class="edit-child">
+        <h3>・ユーザー名</h3>
+        <input type="text" id="new_user_name">
+      </div>
+      <div class="edit-child">
+        <h3>・あなたの体重</h3>
+        <input type="text" id="new_body_weight">
+      </div>
+      <div class="edit-child">
+        <h3>・目標体重</h3>
+        <input type="text" id="new_goal_weight">
+      </div>
+      
+      <div class="save-button-parent">
+        <input type="button" class="save-button edit-button" value="保存" onclick="save_info()">
+      </div>
+    </div>
+
+    <div class="chart-wrapper">
+      <h2>積み上げ距離</h2>
+      <div class="canvas-container">
+        <canvas id="myBarChart" class="myBarChart"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <ul class="button-wrapper">
+      <a href="home.html" class="button">
+        <i class="fas fa-home"></i>
+        <p>HOME</p>
+      </a>
+      <a href="run.html" class="button">
+        <i class="fas fa-running"></i>
+        <p>走る</p>
+      </a>
+      <a class="button" href="user.html">
+        <i class="fas fa-user-circle"></i>
+        <p>アカウント</p>
+      </a>
+      <a class="button" href="item.html">
+        <i class="fas fa-shopping-cart"></i>
+        <p>商品閲覧＆購入</p>
+      </a>
+    </ul>
+  </footer>
+
+  <script src="../static/js/jquery-3.4.1.min.js"></script>
+  <script src="../static/js/test.js"></script>
+  <script src="../static/js/edit_user.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
+  <script src="../static/js/chart.js"></script>
+</body>
+</html>

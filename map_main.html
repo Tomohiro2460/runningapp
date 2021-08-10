@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>demo</title>
+  <style>
+    /* Always set the map height explicitly to define the size of the div
+     * element that contains the map. */
+    #map {
+      height: 70%;
+    }
+    #pp{
+      height: 50px;
+    }    /* Optional: Makes the sample page fill the window. */
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      background-color: rgb(245, 243, 241);
+    }
+
+    #inp{
+      font-size: 30px;
+    }
+  </style>
+  <!-- 動作処理 -->
+  <script>
+    // 現在地取得処理
+    function initMap() {
+      // Geolocation APIに対応している
+      if (navigator.geolocation) {
+        // 現在地を取得
+        navigator.geolocation.getCurrentPosition(
+          // 取得成功した場合
+          function(position) {
+            // 緯度・経度を変数に格納
+            var mapLatLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+            // マップオプションを変数に格納
+            var mapOptions = {
+              zoom : 15,          // 拡大倍率
+              center : mapLatLng  // 緯度・経度
+            };
+            // マップオブジェクト作成
+            var map = new google.maps.Map(
+              document.getElementById("map"), // マップを表示する要素
+              mapOptions         // マップオプション
+            );
+            //　マップにマーカーを表示する
+            var marker = new google.maps.Marker({
+              map : map,             // 対象の地図オブジェクト
+              position : mapLatLng   // 緯度・経度
+            });
+
+            // new google.maps.Circle({
+            //   center: mapLatLng,       // 中心点(google.maps.LatLng)
+            //   fillColor: '#ff0000',   // 塗りつぶし色
+            //   fillOpacity: 0.1,       // 塗りつぶし透過度（0: 透明 ⇔ 1:不透明）
+            //   map: map,             // 表示させる地図（google.maps.Map）
+            //   radius: 1500,          // 半径（ｍ）
+            //   strokeColor: '#ff0000', // 外周色
+            //   strokeOpacity: 1,       // 外周透過度（0: 透明 ⇔ 1:不透明）
+            //   strokeWeight: 1         // 外周太さ（ピクセル）
+            // });
+          },
+          // 取得失敗した場合
+          function(error) {
+            // エラーメッセージを表示
+            switch(error.code) {
+              case 1: // PERMISSION_DENIED
+                alert("位置情報の利用が許可されていません");
+                break;
+              case 2: // POSITION_UNAVAILABLE
+                alert("現在位置が取得できませんでした");
+                break;
+              case 3: // TIMEOUT
+                alert("タイムアウトになりました");
+                break;
+              default:
+                alert("その他のエラー(エラーコード:"+error.code+")");
+                break;
+            }
+          }
+        );
+      // Geolocation APIに対応していない
+      } else {
+        alert("この端末では位置情報が取得できません");
+      }
+
+      
+    }
+
+    
+  </script>
+</head>
+<body>
+  <h1>demo</h1>
+  <div id="map"></div>
+  <section id="inp"><p>距離設定 <span id="span2"></span></p>
+    <p>ランニングを行う目標距離を入力してください．(km)</p>
+    <input type="number" id="number2" value="1" max="2000" />
+    <input type="button" value="設定" onclick="clickBtn3()" />
+  </section>
+  
+  <script>
+    function clickBtn3() {
+      const number2 = document.getElementById("number2");
+      var distanse = document.getElementById("number2").value;
+      distanse = Number(distanse)*1000;
+      document.getElementById("span2").textContent = number2.value + "km";
+      
+      // Geolocation APIに対応している
+      if (navigator.geolocation) {
+        // 現在地を取得
+        navigator.geolocation.getCurrentPosition(
+          // 取得成功した場合
+          function(position) {
+            // 緯度・経度を変数に格納
+            var mapLatLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+            // マップオプションを変数に格納
+            var mapOptions = {
+              zoom : 15,          // 拡大倍率
+              center : mapLatLng  // 緯度・経度
+            };
+            // マップオブジェクト作成
+            var map = new google.maps.Map(
+              document.getElementById("map"), // マップを表示する要素
+              mapOptions         // マップオプション
+            );
+            //　マップにマーカーを表示する
+            var marker = new google.maps.Marker({
+              map : map,             // 対象の地図オブジェクト
+              position : mapLatLng   // 緯度・経度
+            });
+
+            new google.maps.Circle({
+              center: mapLatLng,       // 中心点(google.maps.LatLng)
+              fillColor: '#ff0000',   // 塗りつぶし色
+              fillOpacity: 0.1,       // 塗りつぶし透過度（0: 透明 ⇔ 1:不透明）
+              map: map,             // 表示させる地図（google.maps.Map）
+              radius: distanse,          // 半径（ｍ）
+              strokeColor: '#ff0000', // 外周色
+              strokeOpacity: 1,       // 外周透過度（0: 透明 ⇔ 1:不透明）
+              strokeWeight: 1         // 外周太さ（ピクセル）
+            });
+          },
+          // 取得失敗した場合
+          function(error) {
+            // エラーメッセージを表示
+            switch(error.code) {
+              case 1: // PERMISSION_DENIED
+                alert("位置情報の利用が許可されていません");
+                break;
+              case 2: // POSITION_UNAVAILABLE
+                alert("現在位置が取得できませんでした");
+                break;
+              case 3: // TIMEOUT
+                alert("タイムアウトになりました");
+                break;
+              default:
+                alert("その他のエラー(エラーコード:"+error.code+")");
+                break;
+            }
+          }
+        );
+      // Geolocation APIに対応していない
+      } else {
+        alert("この端末では位置情報が取得できません");
+      }
+
+      
+    }
+    
+  </script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDVTu0QZSYT-TfXwGMojYzIKSm_-lA9KCA&callback=initMap"></script>
+</body>
+</html>

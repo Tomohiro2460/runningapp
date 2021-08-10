@@ -1,0 +1,70 @@
+body {
+    /* height: 650px; */
+    color: #212121;
+    background-color: #eaf6f6;
+    font-family: "游ゴシック";
+    /* background-color: red; */
+  }
+  * {
+    padding: 0;
+    margin: 0;
+  }
+  a {
+    text-decoration: none;
+    color: #212121;
+  }
+  li {
+    list-style: none;
+  }
+  .hidden {
+    display: none;
+  }
+  
+  .login-wrapper {
+    display: flex;
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 60px;
+    padding: 40px 20px;
+    border-radius: 5px;
+    flex-direction: column;
+    justify-content: center;
+    background-color: rgba(30, 86, 160, 0.5);
+  }
+  .app-name-wrapper {
+    display: flex;
+    /* text-align: center; */
+    margin: 0 auto;
+  }
+  .running-logo {
+    width: 50px;
+  }
+  .app-name {
+    text-align: center;
+  }
+  .login-form {
+    margin: 50px auto 0 auto;
+    padding: 40px;
+    border: 1px solid #212121;
+    border-radius: 5px;
+  }
+  .input-form {
+    border: 1px solid #BDBDBD;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    background-color: #eaf6f6;
+  }
+  .login-button {
+    text-align: center;
+    font-weight: bold;
+    display: block;
+    margin-top: 20px;
+    padding: 2px;
+    border: 1px solid #BDBDBD;
+    border-radius: 5px;
+    color: black;
+    background-color: #eaf6f6;
+  }
+  .login-button:hover {
+    border-color: black;
+  }

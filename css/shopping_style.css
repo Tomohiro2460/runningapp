@@ -1,0 +1,21 @@
+.home-app-name {
+    display: block;
+  }
+  
+  .border {
+    display: flex;
+    width: 100%;
+    margin-bottom: 10px;
+    border: 1px solid #BDBDBD;
+    border-radius: 5px;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .image-child {
+    width: 50%;
+    height: 100px;
+    object-fit: contain;
+  }
+  .fa-chevron-right {
+    width: 5%;
+  }

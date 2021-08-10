@@ -1,0 +1,11 @@
+/* Always set the map height explicitly to define the size of the div
+ * element that contains the map. */
+ #map {
+    height: 330px;
+    margin-bottom: 10px;
+    /* background-color: red; */
+  }
+  
+  #pp{
+    height: 50px;
+  }    /* Optional: Makes the sample page fill the window. */

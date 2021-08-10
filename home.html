@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../static/css/main.css">
+  <link rel="stylesheet" href="../static/css/home.css">
+  <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+</head>
+<body>
+  <header class="home-app-name">
+    <div class='app-name-wrapper'>
+      <div class='running-logo'>
+        <img src="../static/images/running_logo.png" alt="" class='running-logo'>
+      </div>
+      <h1 class="app-name">Running Manager</h1>
+    </div>
+  </header>
+  <div class="home-wrapper">
+    <h3 class="home-intro">あなたのランニングを管理する</br>Running Managerへようこそ、<span id="user_name"></span>さん</h3>
+    
+    <div class="user-home-detail">
+      <h3>あなたの現在の体重<span class="fas fa-weight"></span></h3>
+      <p><span id="user_weight">・・・</span> kg</p>
+      <h3>目標体重</h3>
+      <p><span id="user_goal_weight">・・・</span> kg</p>
+      <h3>所持ポイント<span class="fas fa-coins"></span></h3>
+      <p><span id="user_point">・・・</span> pt</p>
+    </div>
+    <!-- <input type="button" value="更新" onclick="get_data_again()"> -->
+  </div>
+  <footer>
+    <ul class="button-wrapper">
+      <a href="#" class="button">
+        <i class="fas fa-home"></i>
+        <p>HOME</p>
+      </a>
+      <a href="run.html" class="button">
+        <i class="fas fa-running"></i>
+        <p>走る</p>
+      </a>
+      <a class="button" href="user.html">
+        <i class="fas fa-user-circle"></i>
+        <p>アカウント</p>
+      </a>
+      <a class="button" href="item.html">
+        <i class="fas fa-shopping-cart"></i>
+        <p>商品閲覧＆購入</p>
+      </a>
+    </ul>
+  </footer>
+
+  <script src="../static/js/jquery-3.4.1.min.js"></script>
+  <script src="../static/js/test.js"></script>
+  <script src="../static/js/home.js"></script>
+</body>
+</html>
